@@ -10,14 +10,12 @@ const CustomerMaster = {
     phone,
     active,
     createdAt,
-    modifiedAt,
     createdBy,
-    modifiedBy,
     countryId
   ) => {
     return new Promise((resolve, reject) => {
       db.query(
-        "INSERT INTO customer_master (customer_type, first_name, last_name, email, phone_dial_code, phone, active, created_at, modified_at, created_by, modified_by, country_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO customer_master (customer_type, first_name, last_name, email, phone_dial_code, phone, active, created_at, modified_at, created_by, modified_by, country_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NULL, ?, NULL, ?)",
         [
           customerType,
           firstName,
@@ -27,9 +25,7 @@ const CustomerMaster = {
           phone,
           active,
           createdAt,
-          modifiedAt,
           createdBy,
-          modifiedBy,
           countryId,
         ],
         (error, results) => {
@@ -80,15 +76,13 @@ const CustomerMaster = {
     phoneDialCode,
     phone,
     active,
-    createdAt,
     modifiedAt,
-    createdBy,
     modifiedBy,
     countryId
   ) => {
     return new Promise((resolve, reject) => {
       db.query(
-        "UPDATE customer_master SET customer_type = ?, first_name = ?, last_name = ?, email = ?, phone_dial_code = ?, phone = ?, active = ?, created_at = ?, modified_at = ?, created_by = ?, modified_by = ?, country_id = ? WHERE id = ?",
+        "UPDATE customer_master SET customer_type = ?, first_name = ?, last_name = ?, email = ?, phone_dial_code = ?, phone = ?, active = ?, modified_at = ?, modified_by = ?, country_id = ? WHERE id = ?",
         [
           customerType,
           firstName,
@@ -97,9 +91,7 @@ const CustomerMaster = {
           phoneDialCode,
           phone,
           active,
-          createdAt,
           modifiedAt,
-          createdBy,
           modifiedBy,
           countryId,
           id,

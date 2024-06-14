@@ -11,9 +11,7 @@ export const createCustomerMaster = async (req, res) => {
       phone,
       active,
       createdAt,
-      modifiedAt,
       createdBy,
-      modifiedBy,
       countryId,
     } = req.body;
     const id = await CustomerMaster.create(
@@ -25,9 +23,7 @@ export const createCustomerMaster = async (req, res) => {
       phone,
       active,
       createdAt,
-      modifiedAt,
       createdBy,
-      modifiedBy,
       countryId
     );
     res.status(201).json({ id });
@@ -69,9 +65,7 @@ export const updateCustomerMaster = async (req, res) => {
       phoneDialCode,
       phone,
       active,
-      createdAt,
       modifiedAt,
-      createdBy,
       modifiedBy,
       countryId,
     } = req.body;
@@ -84,9 +78,7 @@ export const updateCustomerMaster = async (req, res) => {
       phoneDialCode,
       phone,
       active,
-      createdAt,
       modifiedAt,
-      createdBy,
       modifiedBy,
       countryId
     );

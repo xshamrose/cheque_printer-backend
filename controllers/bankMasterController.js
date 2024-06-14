@@ -9,9 +9,7 @@ export const createBankMaster = async (req, res) => {
       subCurrency,
       active,
       createdAt,
-      modifiedAt,
       createdBy,
-      modifiedBy,
       chequeTemplateId,
       countryId,
     } = req.body;
@@ -22,13 +20,11 @@ export const createBankMaster = async (req, res) => {
       subCurrency,
       active,
       createdAt,
-      modifiedAt,
       createdBy,
-      modifiedBy,
       chequeTemplateId,
       countryId
     );
-    res.status(201).json({ id });
+    res.status(200).json({ message: "Bank master created successfully", id });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -65,9 +61,7 @@ export const updateBankMaster = async (req, res) => {
       branchName,
       subCurrency,
       active,
-      createdAt,
       modifiedAt,
-      createdBy,
       modifiedBy,
       chequeTemplateId,
       countryId,
@@ -79,9 +73,7 @@ export const updateBankMaster = async (req, res) => {
       branchName,
       subCurrency,
       active,
-      createdAt,
       modifiedAt,
-      createdBy,
       modifiedBy,
       chequeTemplateId,
       countryId

@@ -8,15 +8,13 @@ const BankMaster = {
     subCurrency,
     active,
     createdAt,
-    modifiedAt,
     createdBy,
-    modifiedBy,
     chequeTemplateId,
     countryId
   ) => {
     return new Promise((resolve, reject) => {
       db.query(
-        "INSERT INTO bank_master (account_number, ifsc_code, branch_name, sub_currency, active, created_at, modified_at, created_by, modified_by, cheque_template_id, country_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO bank_master (account_number, ifsc_code, branch_name, sub_currency, active, created_at, created_by, modified_at, modified_by, cheque_template_id, country_id) VALUES (?, ?, ?, ?, ?, ?, ?, NULL, NULL, ?, ?)",
         [
           accountNumber,
           ifscCode,
@@ -24,9 +22,7 @@ const BankMaster = {
           subCurrency,
           active,
           createdAt,
-          modifiedAt,
           createdBy,
-          modifiedBy,
           chequeTemplateId,
           countryId,
         ],
@@ -76,25 +72,21 @@ const BankMaster = {
     branchName,
     subCurrency,
     active,
-    createdAt,
     modifiedAt,
-    createdBy,
     modifiedBy,
     chequeTemplateId,
     countryId
   ) => {
     return new Promise((resolve, reject) => {
       db.query(
-        "UPDATE bank_master SET account_number = ?, ifsc_code = ?, branch_name = ?, sub_currency = ?, active = ?, created_at = ?, modified_at = ?, created_by = ?, modified_by = ?, cheque_template_id = ?, country_id = ? WHERE id = ?",
+        "UPDATE bank_master SET account_number = ?, ifsc_code = ?, branch_name = ?, sub_currency = ?, active = ?, modified_at = ?, modified_by = ?, cheque_template_id = ?, country_id = ? WHERE id = ?",
         [
           accountNumber,
           ifscCode,
           branchName,
           subCurrency,
           active,
-          createdAt,
           modifiedAt,
-          createdBy,
           modifiedBy,
           chequeTemplateId,
           countryId,

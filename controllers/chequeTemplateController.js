@@ -2,23 +2,13 @@ import ChequeTemplate from "../models/chequeTemplateModel.js";
 
 export const createChequeTemplate = async (req, res) => {
   try {
-    const {
-      name,
-      details,
-      active,
-      createdAt,
-      modifiedAt,
-      createdBy,
-      modifiedBy,
-    } = req.body;
+    const { name, details, active, createdAt, createdBy } = req.body;
     const id = await ChequeTemplate.create(
       name,
       details,
       active,
       createdAt,
-      modifiedAt,
-      createdBy,
-      modifiedBy
+      createdBy
     );
     res.status(201).json({ id });
   } catch (error) {
@@ -51,23 +41,13 @@ export const getChequeTemplateById = async (req, res) => {
 export const updateChequeTemplate = async (req, res) => {
   try {
     const { id } = req.params;
-    const {
-      name,
-      details,
-      active,
-      createdAt,
-      modifiedAt,
-      createdBy,
-      modifiedBy,
-    } = req.body;
+    const { name, details, active, modifiedAt, modifiedBy } = req.body;
     const updated = await ChequeTemplate.update(
       id,
       name,
       details,
       active,
-      createdAt,
       modifiedAt,
-      createdBy,
       modifiedBy
     );
     if (!updated) {
